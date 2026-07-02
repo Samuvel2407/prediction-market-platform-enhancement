@@ -46,6 +46,13 @@ const LoginModal = ({ isOpen, onClose, onLogin, redirectAfterLogin }) => {
 
     if (!isOpen) return null;
 
+    let modalRoot = document.getElementById('modal-root');
+    if (!modalRoot) {
+        modalRoot = document.createElement('div');
+        modalRoot.id = 'modal-root';
+        document.body.appendChild(modalRoot);
+    }
+
     return ReactDOM.createPortal(
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
             <div className="relative bg-blue-900 p-6 rounded-lg text-white max-w-sm mx-auto">
@@ -68,7 +75,7 @@ const LoginModal = ({ isOpen, onClose, onLogin, redirectAfterLogin }) => {
                 </button>
             </div>
         </div>,
-        document.getElementById('modal-root')
+        modalRoot
     );
 };
 

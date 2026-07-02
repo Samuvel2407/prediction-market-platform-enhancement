@@ -50,7 +50,7 @@ const Style = () => {
       <div className='bg-primary-background p-6'>
         <h2 className='text-2xl font-bold text-white mb-6'>Responsive Grids (Spec)</h2>
         <p className='text-gray-300 mb-4'>
-          Mobile-responsive grid patterns used throughout SocialPredict. These components adapt from mobile-first 
+          Mobile-responsive grid patterns used throughout the platform. These components adapt from mobile-first 
           (iPhone 12 mini @ 375px) to desktop layouts using Tailwind's responsive utilities.
         </p>
         
@@ -231,7 +231,7 @@ const Style = () => {
       
       {/* Color Palette Section */}
       <div className='bg-primary-background p-6'>
-        <h2 className='text-2xl font-bold text-white mb-6'>SocialPredict Color Palette</h2>
+        <h2 className='text-2xl font-bold text-white mb-6'>Prediction Market Color Palette</h2>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8'>
           {/* Primary Colors */}
           <div className='bg-primary-background p-4 rounded-lg border border-gray-600'>

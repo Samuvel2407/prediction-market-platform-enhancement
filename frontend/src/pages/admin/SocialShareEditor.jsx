@@ -181,7 +181,7 @@ function SocialShareEditor() {
                 value={settings.siteName}
                 onChange={(e) => handleInputChange('siteName', e.target.value)}
                 className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-blue-500 focus:outline-none"
-                placeholder="SocialPredict"
+                placeholder="Prediction Market Platform"
               />
             </div>
 
@@ -234,7 +234,7 @@ function SocialShareEditor() {
                 value={settings.defaultImageUrl}
                 onChange={(e) => handleInputChange('defaultImageUrl', e.target.value)}
                 className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-blue-500 focus:outline-none"
-                placeholder="/og/socialpredict-share.png"
+                placeholder="/og/prediction-market-share.png"
               />
               <p className="text-amber-200 text-sm mt-2">
                 {hostedImageGuidance}
@@ -249,7 +249,7 @@ function SocialShareEditor() {
                 value={settings.imageAlt}
                 onChange={(e) => handleInputChange('imageAlt', e.target.value)}
                 className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-blue-500 focus:outline-none"
-                placeholder="SocialPredict share card"
+                placeholder="Prediction Market Platform share card"
               />
             </div>
 
@@ -282,7 +282,7 @@ function SocialShareEditor() {
               </div>
               <div className="p-4">
                 <p className="text-xs uppercase tracking-wide text-gray-500">Public market card</p>
-                <h3 className="text-white font-semibold mt-1">Example Market | {settings.siteName || 'SocialPredict'}</h3>
+                <h3 className="text-white font-semibold mt-1">Example Market | {settings.siteName || 'Prediction Market Platform'}</h3>
                 <p className="text-gray-300 text-sm mt-2">
                   {settings.defaultDescription || 'Prediction markets for the social web'}
                 </p>

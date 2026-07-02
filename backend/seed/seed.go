@@ -96,12 +96,11 @@ func EnsureDBReady(db *gorm.DB, maxAttempts int) error {
 
 func SeedHomepage(db *gorm.DB, repoRoot string) error {
 	var count int64
-	if err := db.Model(&models.HomepageContent{}).
-		Where("slug = ?", "home").Count(&count).Error; err != nil {
+	if err := db.Model(&models.HomepageContent{}).Where("slug = ?", "home").Count(&count).Error; err != nil {
 		return err
 	}
 	if count > 0 {
-		return nil
+		db.Unscoped().Where("slug = ?", "home").Delete(&models.HomepageContent{})
 	}
 
 	// Use embedded content to avoid filesystem path issues

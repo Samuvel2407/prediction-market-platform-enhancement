@@ -2,6 +2,8 @@ package main
 
 import (
 	"net/http"
+	"os"
+	"strings"
 
 	appenv "socialpredict/internal/app/env"
 	appruntime "socialpredict/internal/app/runtime"
@@ -30,7 +32,14 @@ func main() {
 		logger.Fatal("startup", "database configuration unavailable", err, startupIncompatibilityFields("LoadDBConfigFromEnv")...)
 	}
 
-	db, err := appruntime.InitDB(dbCfg, appruntime.PostgresFactory{})
+	var factory appruntime.DBFactory
+	if strings.ToLower(os.Getenv("DB_DIALECT")) == "sqlite" {
+		factory = appruntime.SQLiteFactory{}
+	} else {
+		factory = appruntime.PostgresFactory{}
+	}
+
+	db, err := appruntime.InitDB(dbCfg, factory)
 	if err != nil {
 		logger.Fatal("startup", "database initialization failed", err, startupIncompatibilityFields("InitDB")...)
 	}

@@ -5,52 +5,52 @@ export default {
     extend: {
       colors: {
         'primary-background': {
-          DEFAULT: '#0e121d',
+          DEFAULT: '#020617',
         },
         'custom-gray-verylight': {
-          DEFAULT: '#DBD4D3',
+          DEFAULT: '#F8FAFC',
         },
         'custom-gray-light': {
-          DEFAULT: '#67697C',
+          DEFAULT: '#94A3B8',
         },
         'custom-gray-dark': {
-          DEFAULT: '#303030',
+          DEFAULT: '#0F172A',
         },
         'beige': {
-          DEFAULT: '#F9D3A5',
-          hover: '#F9D3A5',
-          active: '#F9D3A5'
+          DEFAULT: '#06B6D4',
+          hover: '#22D3EE',
+          active: '#0891B2'
         },
         'green-btn': {
-          DEFAULT: '#054A29',
-          hover: '#00cca4',
-          'border-default': '#054A29',
-          'border-hover': '#00cca4',
+          DEFAULT: '#10B981',
+          hover: '#34D399',
+          'border-default': '#10B981',
+          'border-hover': '#34D399',
         },
         'red-btn': {
-          DEFAULT: '#D00000',
-          hover: '#FF8484',
-          'border-default': '#D00000',
-          'border-hover': '#FF8484',
+          DEFAULT: '#EF4444',
+          hover: '#F87171',
+          'border-default': '#EF4444',
+          'border-hover': '#F87171',
         },
         'gold-btn': {
-          DEFAULT: '#FFC107',
-          hover: '#FFC107',
-          active: '#FFC107',
+          DEFAULT: '#F59E0B',
+          hover: '#FBBF24',
+          active: '#D97706',
         },
         'neutral-btn': {
-          DEFAULT: '#8A1C7C',
-          hover: '#8A1C7C',
-          active: '#8A1C7C',
+          DEFAULT: '#2563EB',
+          hover: '#3B82F6',
+          active: '#1D4ED8',
         },
         'primary-pink': {
-          DEFAULT: '#F72585',
+          DEFAULT: '#2563EB',
         },
         'info-blue': {
-          DEFAULT: '#17a2b8',
+          DEFAULT: '#06B6D4',
         },
         'warning-orange': {
-          DEFAULT: '#ffc107',
+          DEFAULT: '#F59E0B',
         },
       },
       borderRadius: {

@@ -692,7 +692,7 @@ const Stats = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-4">Platform Statistics</h1>
         <p className="text-gray-300 text-lg">
-          System configuration and financial metrics for the SocialPredict platform.
+          System configuration and financial metrics for the forecasting engine.
         </p>
       </div>
 

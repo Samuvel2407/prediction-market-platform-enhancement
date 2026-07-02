@@ -11,6 +11,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/glebarez/sqlite"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	gormlogger "gorm.io/gorm/logger"
@@ -72,6 +73,36 @@ type DBFactory interface {
 	Open(DBConfig) (*gorm.DB, error)
 }
 
+// SQLiteFactory implements DBFactory using the sqlite driver.
+type SQLiteFactory struct {
+	GormConfig *gorm.Config
+}
+
+// Open opens a sqlite-backed gorm DB using the provided configuration.
+func (f SQLiteFactory) Open(cfg DBConfig) (*gorm.DB, error) {
+	gormCfg := f.GormConfig
+	if gormCfg == nil {
+		gormCfg = &gorm.Config{}
+	}
+
+	if gormCfg.Logger == nil {
+		gormCfg.Logger = newFilteredGormLogger(gormlogger.New(
+			log.New(os.Stdout, "\r\n", log.LstdFlags),
+			gormlogger.Config{
+				LogLevel:                  gormlogger.Warn,
+				IgnoreRecordNotFoundError: true,
+			},
+		))
+	}
+
+	dbPath := cfg.Name
+	if dbPath == "" {
+		dbPath = "socialpredict.db"
+	}
+
+	return gorm.Open(sqlite.Open(dbPath), gormCfg)
+}
+
 // PostgresFactory implements DBFactory using the postgres driver.
 type PostgresFactory struct {
 	GormConfig *gorm.Config
@@ -79,6 +110,18 @@ type PostgresFactory struct {
 
 // LoadDBConfigFromEnv normalizes env vars into a DBConfig.
 func LoadDBConfigFromEnv() (DBConfig, error) {
+	dialect := strings.ToLower(firstNonEmpty(os.Getenv("DB_DIALECT"), os.Getenv("DB_TYPE")))
+	if dialect == "sqlite" {
+		cfg := DBConfig{
+			Name:            firstNonEmpty(os.Getenv("DB_NAME"), "socialpredict.db"),
+			MaxOpenConns:    intFromEnv(defaultDBMaxOpenConns, "DB_MAX_OPEN_CONNS", "POSTGRES_MAX_OPEN_CONNS"),
+			MaxIdleConns:    intFromEnv(defaultDBMaxIdleConns, "DB_MAX_IDLE_CONNS", "POSTGRES_MAX_IDLE_CONNS"),
+			ConnMaxLifetime: durationFromEnv(defaultDBConnMaxLifetime, "DB_CONN_MAX_LIFETIME", "POSTGRES_CONN_MAX_LIFETIME"),
+			ConnMaxIdleTime: durationFromEnv(defaultDBConnMaxIdleTime, "DB_CONN_MAX_IDLE_TIME", "POSTGRES_CONN_MAX_IDLE_TIME"),
+		}
+		return cfg, nil
+	}
+
 	cfg := DBConfig{
 		Host:            firstNonEmpty(os.Getenv("DB_HOST"), os.Getenv("DBHOST")),
 		User:            firstNonEmpty(os.Getenv("POSTGRES_USER"), os.Getenv("DB_USER")),

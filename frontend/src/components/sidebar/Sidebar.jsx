@@ -239,7 +239,7 @@ const Sidebar = () => {
         } md:relative md:translate-x-0`}
       >
         <div className='flex items-center justify-between p-3 border-b border-gray-700'>
-          <h2 className='text-lg font-bold'>SocialPredict</h2>
+          <h2 className='text-base font-bold leading-tight text-blue-400'>Prediction Market</h2>
           <button
             onClick={toggleSidebar}
             className='md:hidden'
@@ -257,15 +257,15 @@ const Sidebar = () => {
           <ul className='space-y-1'>{renderLinks()}</ul>
         </nav>
         <footer className='border-t border-gray-700 p-2'>
-          <p className='text-xs text-center'>📈 Built with SocialPredict</p>
-          <p className='text-xs text-center'>
+          <p className='text-xs text-center text-gray-400'>Developed by Samuvel Joseph J</p>
+          <p className='text-xs text-center mt-1'>
             <a
-              href='https://github.com/openpredictionmarkets/socialpredict'
+              href='https://github.com/Samuvel2407'
               target='_blank'
               rel='noopener noreferrer'
               className='text-blue-400 hover:text-blue-300'
             >
-              ⭐ Star Us on Github!
+              ⭐ Samuvel2407 on GitHub
             </a>
           </p>
         </footer>

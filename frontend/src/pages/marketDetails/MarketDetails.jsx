@@ -13,8 +13,8 @@ const MarketDetails = () => {
 
   useDocumentMeta({
     title: details?.market?.questionTitle
-      ? `${details.market.questionTitle} | SocialPredict`
-      : 'SocialPredict',
+      ? `${details.market.questionTitle} | Prediction Market Platform`
+      : 'Prediction Market Platform',
     description: details
       ? `${Math.round(currentProbability * 100)}% probability · created by ${details.creator?.username || details.market.creatorUsername}`
       : undefined,

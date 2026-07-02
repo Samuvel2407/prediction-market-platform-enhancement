@@ -18,7 +18,7 @@ function ErrorFallback({ error, resetErrorBoundary }) {
     >
       <h1 className='text-4xl font-bold mb-4'>Oops! Something went wrong.</h1>
       <p className='text-xl mb-8'>
-        We could not load this part of SocialPredict. Please try again.
+        We could not load this page. Please try again.
       </p>
       {showDiagnosticDetails && (
         <details className='mb-8 max-w-2xl text-left'>

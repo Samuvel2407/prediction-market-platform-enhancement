@@ -212,7 +212,8 @@ function MarketsByStatusTable({ status, limit = DEFAULT_LIMIT, tagSlug = '', dis
 
     try {
       const safeDiscoverySlug = encodeURIComponent(discoverySlug || 'markets');
-      const url = new URL(`${API_URL}/v0/read/market-discovery/${safeDiscoverySlug}`);
+      const baseUrl = API_URL && API_URL.startsWith('http') ? API_URL : `${window.location.origin}${API_URL || ''}`;
+      const url = new URL(`${baseUrl}/v0/read/market-discovery/${safeDiscoverySlug}`);
       const params = new URLSearchParams();
 
       if (status && status.toLowerCase() !== 'all') {
