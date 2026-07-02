@@ -1,0 +1,61 @@
+Prediction Market Platform Enhancement
+Copyright (c) 2026 Samuvel Joseph J
+
+This project is based on SocialPredict, an open-source prediction market
+platform developed by Open Prediction Markets.
+
+Original project: https://github.com/openpredictionmarkets/socialpredict
+Original license: MIT License
+Original copyright: Copyright (c) 2024 Open Prediction Markets
+
+================================================================================
+
+MIT License
+
+Copyright (c) 2024 Open Prediction Markets
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+MODIFICATIONS made by Samuvel Joseph J (https://github.com/Samuvel2407):
+
+  - Added SQLite database dialect support to enable local development without
+    Docker or PostgreSQL (backend/internal/app/runtime/db.go, backend/main.go)
+
+  - Fixed URL constructor crash in MarketsByStatusTable.jsx caused by relative
+    API_URL value being passed to the JavaScript URL() constructor
+
+  - Fixed React portal mounting error in LoginModal.jsx by dynamically creating
+    the #modal-root container when absent from the DOM
+
+  - Configured Vite dev server proxy for /v0 API routes to eliminate hardcoded
+    absolute port references (frontend/vite.config.mjs, frontend/src/config.js)
+
+  - Fixed database seeding UNIQUE constraint failure in seed.go by implementing
+    Unscoped().Delete() before re-seeding HomepageContent records
+
+  - Overhauled the UI color palette in tailwind.config.js to a modern fintech
+    theme (slate background, blue primary, cyan accent)
+
+  - Updated navbar, footer, about page, homepage CMS content, browser title and
+    OpenGraph metadata for portfolio presentation
+
+  - Authored comprehensive project documentation (README.md, NOTICE,
+    branding_changes_report.md)
