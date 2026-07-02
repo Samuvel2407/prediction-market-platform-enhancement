@@ -19,6 +19,11 @@ Engineered and enhanced by **[Samuvel Joseph J](https://github.com/Samuvel2407)*
 > [!IMPORTANT]
 > **This project is based on the open-source [SocialPredict](https://github.com/openpredictionmarkets/socialpredict) platform** by [Open Prediction Markets](https://github.com/openpredictionmarkets), licensed under the [MIT License](LICENSE). This repository represents the engineering, debugging, product analysis, and enhancement work completed by **Samuvel Joseph J** as a portfolio case study. The original copyright and license notices are preserved in full.
 
+### 📚 Portfolio & Case Study Resources
+
+- **[Technical Architecture Guide (ARCHITECTURE.md)](ARCHITECTURE.md)** — Detailed overview of system layers, database schemas, and request lifecycles.
+- **[Full Engineering Case Study (CASE_STUDY.md)](CASE_STUDY.md)** — In-depth breakdown of bugs identified, root cause diagnoses, refactoring fixes, and product evaluations.
+
 ---
 
 ## 🏛 Project Origin
